@@ -1,0 +1,54 @@
+# Copyright DKC UMW, All rights reserved
+
+name: Dependency Update Check
+
+on:
+  schedule:
+    # Run at 3 AM UTC every Monday
+    - cron: '0 3 * * 1'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  check-updates:
+    name: Check for Dependency Updates
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Check frontend dependencies
+        working-directory: ./web
+        run: |
+          echo "## Frontend Dependency Updates" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          npm outdated || true
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          npm outdated >> $GITHUB_STEP_SUMMARY || echo "All dependencies up to date" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+      
+      - name: Check backend dependencies
+        working-directory: ./api
+        run: |
+          echo "## Backend Dependency Updates" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          npm outdated || true
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          npm outdated >> $GITHUB_STEP_SUMMARY || echo "All dependencies up to date" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+      
+      - name: Check for security vulnerabilities
+        run: |
+          echo "## Security Vulnerabilities" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Frontend" >> $GITHUB_STEP_SUMMARY
+          cd web && npm audit --audit-level=moderate || true
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### Backend" >> $GITHUB_STEP_SUMMARY
+          cd ../api && npm audit --audit-level=moderate || true
+
