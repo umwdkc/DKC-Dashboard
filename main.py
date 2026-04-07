@@ -8,8 +8,8 @@ import concurrent.futures
 
 # --- API CONFIG ---
 COMPANY = "umwdkc"
-USER = "" # DKC USERNAME HERE
-PASS = "" # DKC PASSWORD HERE
+USER = "" # dkcumw
+PASS = "" # hubrisGideon47
 BOOKING_URL = "https://user-api.simplybook.me/admin/"
 LOGIN_URL = "https://user-api.simplybook.me/login"
 
