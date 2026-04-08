@@ -2,14 +2,15 @@ import streamlit as st
 import pandas as pd
 import requests
 import json
+import os
 from datetime import datetime, timedelta
 import plotly.express as px
 import concurrent.futures
 
 # --- API CONFIG ---
 COMPANY = "umwdkc"
-USER = "" # dkcumw
-PASS = "" # hubrisGideon47
+USER = os.environ.get("SIMPLYBOOK_USER", "")
+PASS = os.environ.get("SIMPLYBOOK_PASS", "")
 BOOKING_URL = "https://user-api.simplybook.me/admin/"
 LOGIN_URL = "https://user-api.simplybook.me/login"
 
