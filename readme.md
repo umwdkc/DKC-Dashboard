@@ -139,7 +139,7 @@ The app is hosted on Vercel and deploys automatically when you push to the maste
 
 For questions or issues, reach out to the Digital Knowledge Center.
 
-- Website: [dkc.umw.edu](https://www.dkc.umw.edu)
+- Website: [dkc.umw.edu](https://dkc.umw.edu/)
 - Location: University of Mary Washington
 
 ## License
