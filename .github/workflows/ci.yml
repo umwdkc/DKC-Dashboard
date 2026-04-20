@@ -55,7 +55,7 @@ jobs:
           du -sh dist/* | sort -h
       
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: frontend-build
           path: web/dist/
@@ -117,7 +117,7 @@ jobs:
           npm audit --json > audit-backend.json || true
       
       - name: Upload audit results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: security-audits
           path: |
