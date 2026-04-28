@@ -41,8 +41,8 @@ app.use(express.json()); // Parse JSON request bodies
  * @constant {string} LOGIN_URL - SimplyBook authentication endpoint
  */
 const COMPANY = "umwdkc";
-const USER = "rabbas";
-const PASS = "RusulAbbas123.";
+const USER = process.env.SIMPLYBOOK_USER || "";
+const PASS = process.env.SIMPLYBOOK_PASS || "";
 const BOOKING_URL = "https://user-api.simplybook.me/admin/";
 const LOGIN_URL = "https://user-api.simplybook.me/login";
 
