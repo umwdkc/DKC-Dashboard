@@ -77,7 +77,7 @@ import { toast } from "sonner";
 
 // API Configuration
 // const API_URL = 'http://localhost:5001/api'; // Use for local development with Express server
-const API_URL = "https://rusul-dkc.vercel.app/api"; // Production API endpoint
+const API_URL = "https://dkc-dashboard.vercel.app/api"; // Production API endpoint
 
 /**
  * Cache expiration duration in milliseconds (30 minutes).
