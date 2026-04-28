@@ -49,7 +49,7 @@ import { Label } from '@/components/ui/label';
 // API Configuration
 // const API_URL = 'http://localhost:5001/api'; // Use for local development
 // const API_URL = 'https://dkc-booking-dashboard.vercel.app/api'; // Alternative deployment URL
-const API_URL = 'https://rusul-dkc.vercel.app/api'; // Production API URL
+const API_URL = 'https://dkc-dashboard.vercel.app/api'; // Production API URL
 
 /**
  * Cache expiration time in milliseconds (30 minutes).
